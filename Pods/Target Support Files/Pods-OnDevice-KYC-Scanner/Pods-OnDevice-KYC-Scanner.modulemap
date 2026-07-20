@@ -1,0 +1,6 @@
+framework module Pods_OnDevice_KYC_Scanner {
+  umbrella header "Pods-OnDevice-KYC-Scanner-umbrella.h"
+
+  export *
+  module * { export * }
+}
