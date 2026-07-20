@@ -90,10 +90,11 @@ struct ScannerView: View {
                 .accessibilityLabel(viewModel.isRunning ? "Pause scanning" : "Start scanning")
             }
         }
-        .task {
+        .onAppear {
             viewModel.prepareInitialEngineIfNeeded()
             viewModel.start()
-
+        }
+        .task {
             if let pendingInitialImage {
                 self.pendingInitialImage = nil
                 await viewModel.processStaticImage(pendingInitialImage)
