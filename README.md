@@ -11,6 +11,12 @@ A native SwiftUI app for scanning ID and KYC documents on device. It supports bi
 | ![Screenshot 7](screenshots/7.png) | ![Screenshot 8](screenshots/8.png) | ![Screenshot 9](screenshots/9.png) |
 | ![Screenshot 10](screenshots/10.png) | | |
 
+## Engineering Notes
+
+The scan flow separates camera capture, OCR, parsing, review, and local persistence. Apple Vision provides the default local recognition path; bundled LiteRT models provide an optional alternative with Vision fallback. Users review and correct extracted fields before saving, because OCR confidence and document layouts vary. The app keeps document images on device and protects saved records with Keychain-backed Realm encryption and iOS file protection.
+
+This is a portfolio implementation of document capture and extraction, not an identity verification or compliance service.
+
 ## Features
 
 - Face ID, Touch ID, or device passcode unlock with `LocalAuthentication`.
